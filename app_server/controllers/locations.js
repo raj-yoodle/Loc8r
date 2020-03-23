@@ -6,8 +6,8 @@ if (process.env.NODE_ENV === 'production') {
   apiOptions.server = 'https://boiling-wave-93301.herokuapp.com';
 }
 
-global.iplng = '';
-global.iplat = '';
+var iplng = '';
+var iplat = '';
 
 const formatDistance = (distance) => {
   let thisDistance = 0;
@@ -98,7 +98,7 @@ const homelist = (req, res) => {
     iplat = coords.latitude;
   });
 
-  const requestOptions = {
+  var requestOptions = {
     url: `${apiOptions.server}${path}`,
     method: 'GET',
     json: {},
