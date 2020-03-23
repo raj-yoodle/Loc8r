@@ -62,6 +62,23 @@ const renderHomepage = (req, res, responseBody) => {
 
 const homelist = (req, res) => {
   const path = '/api/locations';
+  
+  var IPinfo = require("node-ipinfo");
+  var token = "7f5bc19fbab4c6";
+  const requestingIP = req.ip;
+  var ipinfo = new IPinfo(token);
+
+  ipinfo.lookupIp(requestingIP).then((response) => {
+    console.log(response.loc);
+    var loc = response.loc.split(',');
+    var coords = {
+        latitude: loc[0],
+        longitude: loc[1]
+    };
+    console.log(coords.longitude);
+    console.log(coord.latitude);
+  });
+
   const requestOptions = {
     url: `${apiOptions.server}${path}`,
     method: 'GET',
