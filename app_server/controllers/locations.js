@@ -6,8 +6,8 @@ if (process.env.NODE_ENV === 'production') {
   apiOptions.server = 'https://boiling-wave-93301.herokuapp.com';
 }
 
-let lng = '';
-let lat = '';
+global.iplng = '';
+global.iplat = '';
 
 const formatDistance = (distance) => {
   let thisDistance = 0;
@@ -83,6 +83,8 @@ const homelist = (req, res) => {
 
   console.log("ipaddress:" + ipAddr);
 
+  ipinfo.lookupIp(ipinfo).then()
+
   ipinfo.lookupIp(ipAddr).then((response) => {
     console.log(response);
     var loc = response.loc.split(',');
@@ -92,8 +94,8 @@ const homelist = (req, res) => {
     };
     console.log(coords.longitude);
     console.log(coords.latitude);
-    lng = coords.longitude;
-    lat = coords.latitude;
+    iplng = coords.longitude;
+    iplat = coords.latitude;
   });
 
   const requestOptions = {
@@ -101,8 +103,8 @@ const homelist = (req, res) => {
     method: 'GET',
     json: {},
     qs: {
-      lng: `${lng}`,
-      lat: `${lat}`,
+      lng: `${iplng}`,
+      lat: `${iplat}`,
       //lng:-94.68501,
       //lat:38.858268,
       maxDistance: 20
