@@ -65,7 +65,8 @@ const homelist = (req, res) => {
   
   var IPinfo = require("node-ipinfo");
   var token = "7f5bc19fbab4c6";
-  const requestingIP = req.ip;
+  //const requestingIP = req.ip;
+  const requestingIP = "76.92.212.14";
   var ipinfo = new IPinfo(token);
 
   console.log("ipaddress:" + requestingIP);
