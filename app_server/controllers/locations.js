@@ -67,8 +67,8 @@ const homelist = (req, res) => {
   const path = '/api/locations';
   
   var IPinfo = require("node-ipinfo");
-  var token = "7f5bc19fbab4c6";
-
+  //var token = "7f5bc19fbab4c6";
+  var token = "";
   var iplng = '';
   var iplat = '';
 
