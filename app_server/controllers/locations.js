@@ -51,12 +51,12 @@ const renderHomepage = (req, res, responseBody) => {
   }
   res.render('locations-list',
     {
-      title: 'Loc8r - Free meal finder',
+      title: 'Meal Loc8r - Free meal finder',
       pageHeader: {
-        title: 'Loc8r',
+        title: 'Meal Loc8r',
         strapLine: 'Find places giving out free meals near you!'
       },
-      sidebar: "Loc8r helps you find businesses and organizations giving out free meals during the coronavirus pandemic.",
+      sidebar: "Meal Loc8r helps you find businesses and organizations giving out free meals during the coronavirus pandemic.",
       locations: responseBody,
       message
     }
