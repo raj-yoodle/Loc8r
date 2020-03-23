@@ -83,7 +83,11 @@ const homelist = (req, res) => {
 
   console.log("ipaddress:" + ipAddr);
 
-  ipinfo.lookupIp(ipAddr).then((response) => {
+  const ipdetails = ipinfo.lookupIp(ipAddr);
+
+  console.log("ipdetails:" + ipdetails);
+
+  /* ipinfo.lookupIp(ipAddr).then((response) => {
     console.log(response);
     var loc = response.loc.split(',');
     var coords = {
@@ -94,7 +98,7 @@ const homelist = (req, res) => {
     console.log(coords.latitude);
     iplng = coords.longitude;
     iplat = coords.latitude;
-  });
+  }); */
 
   var requestOptions = {
     url: `${apiOptions.server}${path}`,
