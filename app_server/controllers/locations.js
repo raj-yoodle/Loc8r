@@ -3,7 +3,7 @@ const apiOptions = {
   server: 'http://localhost:3000'
 };
 if (process.env.NODE_ENV === 'production') {
-  apiOptions.server = 'https://pure-temple-67771.herokuapp.com';
+  apiOptions.server = 'https://boiling-wave-93301.herokuapp.com';
 }
 
 const formatDistance = (distance) => {
@@ -69,14 +69,14 @@ const homelist = (req, res) => {
   var ipinfo = new IPinfo(token);
 
   ipinfo.lookupIp(requestingIP).then((response) => {
-    console.log(response.loc);
+    //console.log(response.loc);
     var loc = response.loc.split(',');
     var coords = {
         latitude: loc[0],
         longitude: loc[1]
     };
-    console.log(coords.longitude);
-    console.log(coord.latitude);
+    //console.log(coords.longitude);
+    //console.log(coord.latitude);
   });
 
   const requestOptions = {
@@ -84,8 +84,8 @@ const homelist = (req, res) => {
     method: 'GET',
     json: {},
     qs: {
-      lng: -94.660634,
-      lat: 38.857737,
+      lng: coords.longitude,
+      lat: coords.latitude,
       maxDistance: 20
     }
   };
