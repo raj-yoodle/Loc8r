@@ -83,8 +83,6 @@ const homelist = (req, res) => {
 
   console.log("ipaddress:" + ipAddr);
 
-  ipinfo.lookupIp(ipinfo).then()
-
   ipinfo.lookupIp(ipAddr).then((response) => {
     console.log(response);
     var loc = response.loc.split(',');
