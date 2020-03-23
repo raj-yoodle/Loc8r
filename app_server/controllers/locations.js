@@ -101,13 +101,12 @@ const homelist = (req, res) => {
     method: 'GET',
     json: {},
     qs: {
-      lng: iplng,
-      lat: iplat,
-      //lng:-94.68501,
-      //lat:38.858268,
+      lng: -94.6643,
+      lat: 38.7902,
       maxDistance: 20
     }
   };
+
   request(
     requestOptions,
     (err, {statusCode}, body) => {
