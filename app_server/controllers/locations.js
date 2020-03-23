@@ -103,7 +103,7 @@ const homelist = (req, res) => {
       qs: {
         lng: iplng,
         lat: iplat,
-        maxDistance: 20
+        maxDistance: 5
       }
     };
   
