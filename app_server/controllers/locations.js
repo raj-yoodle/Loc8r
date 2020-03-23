@@ -6,8 +6,8 @@ if (process.env.NODE_ENV === 'production') {
   apiOptions.server = 'https://boiling-wave-93301.herokuapp.com';
 }
 
-var lng = '';
-var lat = '';
+let lng = '';
+let lat = '';
 
 const formatDistance = (distance) => {
   let thisDistance = 0;
