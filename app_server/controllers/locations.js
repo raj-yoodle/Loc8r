@@ -134,8 +134,8 @@ const renderDetailPage = (req, res, location) => {
         title: location.name,
       },
       sidebar: {
-        context: 'is on Loc8r because it has accessible wifi and space to sit down with your laptop and get some work done.',
-        callToAction: 'If you\'ve been and you like it - or if you don\'t - please leave a review to help other people just like you.'
+        context: 'is on Meal Loc8r because they are one of the many organizations providing free meals during this coronovirus pandemic.',
+        callToAction: 'If you would like to get your organization listed - please reach out to Shawn@yoodle.com.'
       },
       location
     }
