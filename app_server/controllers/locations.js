@@ -66,12 +66,21 @@ const homelist = (req, res) => {
   var IPinfo = require("node-ipinfo");
   var token = "7f5bc19fbab4c6";
   //const requestingIP = req.ip;
-  const requestingIP = "76.92.212.14";
+  //const requestingIP = "76.92.212.14";
+  
+  var ipAddr = req.headers["x-forwarded-for"];
+  if (ipAddr){
+    var list = ipAddr.split(",");
+    ipAddr = list[list.length-1];
+  } else {
+    ipAddr = req.connection.remoteAddress;
+  }
+
   var ipinfo = new IPinfo(token);
 
-  console.log("ipaddress:" + requestingIP);
+  console.log("ipaddress:" + ipAddr);
 
-  ipinfo.lookupIp(requestingIP).then((response) => {
+  ipinfo.lookupIp(ipAddr).then((response) => {
     console.log(response);
     //var loc = response.loc.split(',');
     //var coords = {
