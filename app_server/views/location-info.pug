@@ -25,7 +25,7 @@ block content
                     | #{time.opening} - #{time.closing}
           .card.card-primary
             .card-block
-              h2.card-title Facilities
+              h2.card-title Serving
               each facility in location.facilities
                 span.badge.badge-warning
                   i.fa.fa-check
@@ -36,7 +36,7 @@ block content
             .card-block
               h2.card-title Location map
               img.img-fluid.rounded(src=`http://maps.googleapis.com/maps/api/staticmap?center=${location.coords.lat},${location.coords.lng}&zoom=17&size=400x350&sensor=false&markers=${location.coords.lat},${location.coords.lng}&scale=2`)
-      <!--.row
+      //.row
         .col-12
           .card.card-primary.review-card
             .card-block
@@ -51,7 +51,7 @@ block content
                     small.reviewTimestamp
                       +formatDate(review.createdOn)
                   .col-12
-                    p !{(review.reviewText).replace(/\n/g, '<br/>')}-->
+                    p !{(review.reviewText).replace(/\n/g, '<br/>')}
     .col-12.col-lg-3
       p.lead #{location.name} #{sidebar.context}
       p= sidebar.callToAction
