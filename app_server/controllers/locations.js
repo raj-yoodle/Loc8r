@@ -69,7 +69,7 @@ const homelist = (req, res) => {
   var ipinfo = new IPinfo(token);
 
   ipinfo.lookupIp(requestingIP).then((response) => {
-    //console.log(response.loc);
+    console.log(response.loc);
     var loc = response.loc.split(',');
     var coords = {
         latitude: loc[0],
