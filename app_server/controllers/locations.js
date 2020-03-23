@@ -56,7 +56,7 @@ const renderHomepage = (req, res, responseBody) => {
         title: 'Meal Loc8r',
         strapLine: 'Find places giving out free meals near you!'
       },
-      sidebar: "Meal Loc8r helps you find businesses and organizations giving out free meals during the coronavirus pandemic.",
+      sidebar: "Meal Loc8r helps you find free meals during the coronavirus pandemic. Many thanks to these great organizations doing their part during these tough times.",
       locations: responseBody,
       message
     }
@@ -135,7 +135,7 @@ const renderDetailPage = (req, res, location) => {
       },
       sidebar: {
         context: 'is on Meal Loc8r because they are one of the many organizations providing free meals during this coronovirus pandemic.',
-        callToAction: 'If you would like to get your organization listed - please reach out to Shawn@yoodle.com.'
+        callToAction: 'If you would like to pitch in and get your organization listed - please reach out to Shawn@yoodle.com.'
       },
       location
     }
