@@ -6,9 +6,6 @@ if (process.env.NODE_ENV === 'production') {
   apiOptions.server = 'https://boiling-wave-93301.herokuapp.com';
 }
 
-var iplng = '';
-var iplat = '';
-
 const formatDistance = (distance) => {
   let thisDistance = 0;
   let unit = 'm';
@@ -70,7 +67,9 @@ const homelist = (req, res) => {
   var token = "7f5bc19fbab4c6";
   //const requestingIP = req.ip;
   //const requestingIP = "76.92.212.14";
-  
+  var iplng = '';
+  var iplat = '';
+
   var ipAddr = req.headers["x-forwarded-for"];
   if (ipAddr){
     var list = ipAddr.split(",");
@@ -83,24 +82,48 @@ const homelist = (req, res) => {
 
   console.log("ipaddress:" + ipAddr);
 
-  const ipdetails = ipinfo.lookupIp(ipAddr);
-
-  console.log("ipdetails:" + ipdetails);
-
-  /* ipinfo.lookupIp(ipAddr).then((response) => {
+  ipinfo.lookupIp(ipAddr).then((response) => {
     console.log(response);
     var loc = response.loc.split(',');
     var coords = {
         latitude: loc[0],
         longitude: loc[1]
     };
-    console.log(coords.longitude);
-    console.log(coords.latitude);
+    
     iplng = coords.longitude;
     iplat = coords.latitude;
-  }); */
 
-  var requestOptions = {
+    console.log(iplng);
+    console.log(iplat);
+
+    var requestOptions = {
+      url: `${apiOptions.server}${path}`,
+      method: 'GET',
+      json: {},
+      qs: {
+        lng: iplng,
+        lat: iplat,
+        maxDistance: 20
+      }
+    };
+  
+    request(
+      requestOptions,
+      (err, {statusCode}, body) => {
+        let data = [];
+        if (statusCode === 200 && body.length) {
+          data = body.map( (item) => {
+            item.distance = formatDistance(item.distance);
+            return item;
+          });
+        }
+        renderHomepage(req, res, data);
+      }
+    );
+
+  });
+
+  /* var requestOptions = {
     url: `${apiOptions.server}${path}`,
     method: 'GET',
     json: {},
@@ -123,7 +146,7 @@ const homelist = (req, res) => {
       }
       renderHomepage(req, res, data);
     }
-  );
+  ); */
 };
 
 const renderDetailPage = (req, res, location) => {
