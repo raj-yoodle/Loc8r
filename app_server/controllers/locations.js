@@ -68,13 +68,15 @@ const homelist = (req, res) => {
   const requestingIP = req.ip;
   var ipinfo = new IPinfo(token);
 
+  console.log("ipaddress:" + requestingIP);
+
   ipinfo.lookupIp(requestingIP).then((response) => {
-    console.log(response.loc);
-    var loc = response.loc.split(',');
-    var coords = {
-        latitude: loc[0],
-        longitude: loc[1]
-    };
+    console.log(response);
+    //var loc = response.loc.split(',');
+    //var coords = {
+    //    latitude: loc[0],
+    //    longitude: loc[1]
+    //};
     //console.log(coords.longitude);
     //console.log(coord.latitude);
   });
@@ -84,8 +86,10 @@ const homelist = (req, res) => {
     method: 'GET',
     json: {},
     qs: {
-      lng: coords.longitude,
-      lat: coords.latitude,
+      //lng: coords.longitude,
+      //lat: coords.latitude,
+      lng:-94.68501,
+      lat:38.858268,
       maxDistance: 20
     }
   };
