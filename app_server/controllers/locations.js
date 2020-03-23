@@ -89,6 +89,8 @@ const homelist = (req, res) => {
     };
     console.log(coords.longitude);
     console.log(coords.latitude);
+    var lng = coords.longitude;
+    var lat = coords.latitude;
   });
 
   const requestOptions = {
@@ -96,8 +98,8 @@ const homelist = (req, res) => {
     method: 'GET',
     json: {},
     qs: {
-      lng: coords.longitude,
-      lat: coords.latitude,
+      lng: `${lng}`,
+      lat: `${lat}`,
       //lng:-94.68501,
       //lat:38.858268,
       maxDistance: 20
