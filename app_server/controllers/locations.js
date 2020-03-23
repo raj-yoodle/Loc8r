@@ -8,13 +8,16 @@ if (process.env.NODE_ENV === 'production') {
 
 const formatDistance = (distance) => {
   let thisDistance = 0;
-  let unit = 'm';
+  /* let unit = 'm';
   if (distance > 1000) {
     thisDistance = parseFloat(distance / 1000).toFixed(1);
     unit = 'km';
   } else {
     thisDistance = Math.floor(distance);
-  }
+  } */
+  let unit = 'miles';
+  thisDistance = parseFloat(distance / 1000).toFixed(1);
+  thisDistance = thisDistance/1.6;
   return thisDistance + unit;
 };
 
@@ -103,7 +106,7 @@ const homelist = (req, res) => {
       qs: {
         lng: iplng,
         lat: iplat,
-        maxDistance: 5
+        maxDistance: 20
       }
     };
   
