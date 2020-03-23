@@ -88,7 +88,7 @@ const homelist = (req, res) => {
         longitude: loc[1]
     };
     console.log(coords.longitude);
-    console.log(coord.latitude);
+    console.log(coords.latitude);
   });
 
   const requestOptions = {
